@@ -1,0 +1,333 @@
+
+/* Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Variáveis */
+:root {
+    /* Paleta de cores */
+    --cor-principal: #6464ff;
+    --cor-01: #f9f9f9;
+    --cor-02: #eaeaea;
+    --cor-03: #232323;
+    --cor-04: #23232350;
+
+    /*        X Y   desfoque    espessura   cor */
+    --sombra: 0 0   0.5rem      0.1rem      var(--cor-04);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--cor-02);
+    color: var(--cor-03);
+}
+
+main {
+    margin: 5rem auto;
+}
+
+/* ===== Header ===== */
+nav {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    background-color: var(--cor-03);
+    color: var(--cor-01);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav span {
+    color: var(--cor-principal);
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav i {
+    font-size: 3rem;
+}
+
+.menu a {
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    padding: 1rem 2rem;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: var(--cor-principal);
+}
+
+.menu-responsivo {
+    font-size: 3rem;
+    display: none;
+    position: relative;
+}
+
+/* ===== Bloco da Notícia ===== */
+article {
+    background-color: var(--cor-01);
+    height: 16rem;
+    margin: 0 5rem 1rem;
+    padding: 1rem;
+    border-radius: 0.625rem;
+    transition: 0.5s;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 16rem auto;
+}
+
+article p {
+    margin-top: 1rem;
+    text-align: justify;
+}
+
+article:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+    /*          X   Y   desfoque    espessura   cor */
+    box-shadow: var(--sombra);
+}
+
+.foto {
+    overflow: hidden;
+    margin-right: 1rem;
+}
+
+.foto img {
+    height: 100%;
+}
+
+.leia-mais {
+    font-weight: 700;
+    color: var(--cor-principal);
+    text-align: right;
+    padding: 1rem;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: var(--cor-04);
+    color: var(--cor-01);
+    padding: 1rem 5rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ===== Menu Responsivo (Dropdown) ===== */
+/* .menu-responsivo input { */
+.menu-responsivo input[type="checkbox"] {
+    display: none;
+}
+
+.menu-button {
+    cursor: pointer;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--cor-01);
+    min-width: 10rem;
+    box-shadow: var(--sombra);
+    z-index: 10;
+    text-align: right;
+}
+
+.menu-content ul {
+    /* display: block; */
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-content a {
+    color: var(--cor-03);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1rem;
+    display: block;
+}
+
+.menu-content a:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-01);
+}
+
+/* Checkbox ativando dropdown */
+#menu-toggle:checked + .menu-button + .menu-content {
+    display: block;
+}
+
+
+/* ===== Media Queries ===== */
+
+/* XS Extra Small - smartphone portrait (retrato) */
+@media (max-width: 25rem) { /* 0 até 400px */
+    nav {
+        padding: 0.5rem 1rem;
+    }
+    
+    .menu {
+        display: none;
+    }
+
+    .menu-responsivo {
+        display: block;
+    }
+
+    article {
+        margin: 0 0.5rem 1rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .foto {
+        overflow: visible;
+        margin-right: 0;
+    }
+    
+    .foto img {
+        width: 100%;
+    }
+
+
+    /* TESTE */
+    /* nav {
+        background-color: crimson;
+    } */
+}
+
+/* SM Small - smartphone landscape (paisagem) */
+@media (min-width: 25rem) { /* a partir de 400px */
+    nav {
+        padding: 0.5rem 1rem;
+    }
+    
+    .menu {
+        display: none;
+    }
+
+    .menu-responsivo {
+        display: block;
+    }
+
+    article {
+        margin: 0 0.5rem 1rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .foto {
+        overflow: visible;
+        margin-right: 0;
+    }
+    
+    .foto img {
+        width: 100%;
+    }
+
+
+    /* TESTE */
+    /* nav {
+        background-color: #149ddc;
+    } */
+}
+
+/* Tablet */
+@media (min-width: 36rem) { /* a partir 576px */
+    nav {
+        padding: 0.5rem 2rem;
+    }
+
+    article {
+        margin: 0 2rem 1rem;
+    }
+
+    /* TESTE */
+    /* nav {
+        background-color: #fbb40e;
+    } */
+}
+
+/* Notebook */
+@media (min-width: 48rem) /*and (max-width: 62rem)*/ { /* a partir 768px */
+    .menu {
+        display: block;
+    }
+
+    .menu-responsivo {
+        display: none;
+    }
+    
+    nav {
+        padding: 1.2rem 5rem;
+    }
+
+    article {
+        margin: 0 5rem 1rem;
+        height: 16rem;
+        display: grid;
+        grid-template-columns: 16rem auto;
+    }
+
+    .foto {
+        overflow: hidden;
+        margin-right: 1rem;
+    }
+    
+    .foto img {
+        height: 100%;
+    }
+
+    /* TESTE */
+    /* nav {
+        background-color: #00a51e;
+    } */
+}
+
+/* Desktop */
+@media (min-width: 62rem) { /* a partir 992px */
+    article {
+        max-width: 75rem; /* 1200px */
+    }
+
+    /* TESTE */
+    /* nav {
+        background-color: #38493b;
+    } */
+}
